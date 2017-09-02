@@ -1,0 +1,24 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "app description",
+  "engines":{
+    "node": "7.9.0"
+  },
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "*",
+    "colornames": "*",
+    "color-string": "*",
+    "express": "*",
+    "socket": "*",
+    "ejs": "*",
+    "express-validator": "^3.2.0",
+    "socket.io": "*"
+  }
+}

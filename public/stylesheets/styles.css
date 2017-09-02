@@ -1,0 +1,14 @@
+/* line 13, ../sass/styles.scss */
+html {
+  background-color: #ededed;
+}
+
+/* line 20, ../sass/styles.scss */
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  font-family: arial;
+}

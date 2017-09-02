@@ -1,0 +1,28 @@
+<div id = "registerForm" >
+    <h2 class="">Create a username:</h2>
+
+    <div id = "submitForm">
+      <div class="">
+        <input type="text" maxlength="50" class="rightField" placeholder="[name]" name="name">
+      </div>
+      <div class="">
+        <input type="text" maxlength="50" class="rightField" placeholder="[quest]" name="quest">
+      </div>
+      <div class="">
+        <input type="text" maxlength="50" class="rightField" placeholder="[favorite color]" name="favColor">
+      </div>
+      <button type="Submit" class="register button">Start Chattin!</button>
+    </div>
+    
+    <script defer="defer">
+      var sendName = document.querySelector("#submitForm button")
+      var inputName = document.querySelector("#submitForm input[name='name']")
+      var inputColor = document.querySelector("#submitForm input[name='favColor']")
+      sendName.onclick = function(){ 
+        var newName = inputName.value
+        var newColor = inputColor.value
+        var userInfo = {alias: newName, color: newColor, id: myId}
+        submitName(userInfo)
+      }
+    </script>
+</div>

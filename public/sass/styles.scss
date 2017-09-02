@@ -1,0 +1,41 @@
+
+$theme: #F2F2F2;
+$theme2: lighten($theme, 5);
+$theme3:  darken($theme2, 7);
+$tabCol: #A2C2DB;
+$arrowCol: #9ECCE9;
+
+$white: #f4f4f4;
+
+$margin: 10px;
+$border: 3px solid black;
+
+html{
+  background-color: $theme3;
+} 
+
+#main{
+}
+
+body{
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow: hidden;
+  font-family: arial;
+}
+
+@media (max-height: 760px){
+}
+
+@media (max-height: 150px){
+}
+
+
+@media (min-width: 1544px){
+}
+@media (max-width: 390px){
+}
+@media (max-width: 944px){
+}

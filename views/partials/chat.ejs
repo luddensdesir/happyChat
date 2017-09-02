@@ -1,0 +1,52 @@
+<div id = "chatApp" >
+  <div id = "chat"> 
+    <div id = "submitForm" action="">
+      <textarea type="text" maxlength="1000" class="rightField" placeholder="Type here!" name="favColor"></textarea> 
+      <button type="" class="register button">Save Message</button>
+    </div>
+  </div>
+  <script defer = "defer">
+    var lastMessage = ""
+    var lastLength = 0;
+    outMessage = document.querySelector("#submitForm textarea")
+    saveMessage = document.querySelector("#submitForm button")
+
+    // saveMessage.onclick = function(){
+    //   // saveMessageState({message: saveMessage.value.trim(), id: myId})
+    //   console.log("saveMessage")
+    // }
+
+    outMessage.oninput = function(){
+      var message = outMessage.value.trim()
+      var package = {}
+      if((message.length && message != lastMessage) || (!message.length && lastMessage.length)){
+        lastMessage = message
+        lastLength = lastMessage.length
+        package = {message: lastMessage, id: myId}
+        sendMessage(package)
+      }
+    }
+  </script>
+  <style>
+    #clickContext{
+      width: 130px;
+      min-height: 30px;
+      background-color: green;
+      position: absolute;
+      top: 0px;
+      left: 0px;
+      display: none;
+    }
+  </style>
+  <div id = "users"> 
+    <div id = "clickContext">
+    </div>
+
+    <div id = "userlist">
+        
+    </div>
+
+    <div id = "options">
+    </div>
+  </div>
+</div>

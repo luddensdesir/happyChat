@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Happy Chat</title> 
+    <meta charset="utf-8">
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script src = "main.js"></script>
+    <meta name= "viewport" content = "width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="stylesheets\styles.css"/>
+  </head>
+  <body>
+    <style>
+      .container{
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+    </style>
+    <script defer="defer">
+      var socket = io();
+      var myId = ""
+      var users = []
+      var userArea
+
+      function getUserName(id){
+          for(user in users){
+              if(users[user].id == id){
+                  return users[user].alias;
+              }       
+          }
+      }
+
+      socket.on('newUserConnected', function(data){
+        //check if user already exists before doing this
+        //also save something to local storage that prevents user from opening a dozen tabs and having new "accounts"
+        console.log("WELCOME " + data.alias)
+        users.push(data)
+        console.log(users)
+      });  
+
+      socket.on('newBroadcast', function(data){
+        console.log(userArea)
+        userArea.innerHTML = data.message
+        // console.log(data.id + " " + getUserName(data.id) + " " + data.message)
+      })
+
+      socket.on('firstConnect', function(data){
+        myId = data
+        console.log("myId " + data)
+      });  
+
+      function submitName(name){
+        console.log("Sending name " + name)
+        socket.emit('registerName', name ); 
+      }
+
+      function saveMessageState(data){
+        // socket.emit('archiveMessage', data ); 
+      }
+
+      function sendMessage(data){
+        // console.log("Sending " + data)
+        socket.emit('newMessage', data ); 
+      }
+    </script>
+    <div> 
+      <div>
+        <div style = "float: left; width: 25%;" class = "container">
+          <div id = "accounts">
+            <h1>Happy Ass Chat App</h1>
+            <div id = "dynamic"><% include partials/register%></div>
+            <div id = "dynamic"><% include partials/chat%></div>
+          </div>
+        </div>
+        <div style = "float: right; width: 75%;" class = "container">
+          <div id = "users" style = "height: 100vh; width: 100%;" >
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <script defer="defer">
+      userArea = document.getElementById("users")
+    </script>
+
+  </body> 
+</html>    
