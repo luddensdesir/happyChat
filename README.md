@@ -1,2 +1,3 @@
 # happyChat
-a happy chat app
+
+Chat app that uses websockets
